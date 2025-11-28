@@ -1,2 +1,2 @@
-# Terraform_Basics
-Basic Terraform scripts
+# Terraform_Learning!
+Terraform scripts
