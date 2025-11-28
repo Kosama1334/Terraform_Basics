@@ -37,7 +37,7 @@ resource "aws_s3_bucket" "tf_state_backend" {
 # encryption for the S3 bucket
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_encrypt" {
-  bucket = aws_s3_bucket.${var.bucket_name}.id
+  bucket = aws_s3_bucket.tf_state_backend.id
 
   rule {
     apply_server_side_encryption_by_default {
