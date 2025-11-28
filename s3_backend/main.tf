@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = aws_s3_bucket.tf_state_backend.id
+    bucket         = "remote-backend-s3-v9"
     key            = "dummy_env/terraform.tfstate"
     region         = "ap-south-1"
     encrypt        = true
-    dynamodb_table = aws_dynamodb_table.tf_dynamodb_table.id
+    dynamodb_table = "tf_dynamodb_lock_table"
   }
   required_version = ">= 1.2"
 
