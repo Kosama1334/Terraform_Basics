@@ -35,8 +35,8 @@ resource "aws_s3_bucket" "tf_state_backend" {
 
 #resource block for DynamoDB table
 
-resource "aws_dynamodb_table" "tf_state_table" {
-  name = tf_backend_state_dynamo
+resource "aws_dynamodb_table" "tf_dynamodb_table" {
+  name = "tf_dynamodb_lock_table"
   hash_key = "LockID"
   attribute {
     name = "LockID"
@@ -45,12 +45,3 @@ resource "aws_dynamodb_table" "tf_state_table" {
   billing_mode = "PAY_PER_REQUEST"
 }
 
-
-#resource block for an EC2 instance
-
-resource "aws_instance" "app-server" {
-  instance_type = "t3.micro"
-  tags = {
-    Name = "app-server"
-  }
-}
