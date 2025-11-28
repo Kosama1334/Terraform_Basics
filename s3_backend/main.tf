@@ -1,5 +1,11 @@
 terraform {
-
+  backend "s3" {
+    bucket         = aws_s3_bucket.tf_state_backend.id
+    key            = "dummy_env/terraform.tfstate"
+    region         = "ap-south-1"
+    encrypt        = true
+    dynamodb_table = aws_dynamodb_table.tf_dynamodb_table.id
+  }
   required_version = ">= 1.2"
 
   required_providers {
